@@ -8,10 +8,11 @@ public class Registration
 {
 	private PersonalInfo personalInfo;
 	private String password;
+	Authentication auth=new Authentication();
 	
 	public boolean Register(PersonalInfo info,final String password)
 	{
-		Authentication auth=new Authentication();
+		
 		if(false==auth.isValidEmail(info.getEmail()))
 		{
 			return false;
@@ -20,6 +21,10 @@ public class Registration
 		auth.addDetails(info.getUsername(), password);
 		repository.AddUser(info);
 		return true;
+	}
+
+	public String login(String email, final String password) {
+		return auth.login(email, password);
 	}
 	
 }

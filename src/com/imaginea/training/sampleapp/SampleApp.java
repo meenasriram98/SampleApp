@@ -6,9 +6,10 @@ import java.util.Date;
 
 import com.imaginea.training.authentication.Authentication;
 import com.imaginea.training.registration.Registration;
+import com.imaginea.training.userdata.UserRepository;
 
 public class SampleApp {
-
+	Authentication object=new Authentication();
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -17,10 +18,11 @@ public class SampleApp {
 		PersonalInfo person1=new PersonalInfo("meena@gmail","meena1","meena","sriram",Gender.FEMALE,date);
 		
 		Registration register=new Registration();
+		UserRepository data=UserRepository.instance();
 		register.Register(person1,"1234");
+		System.out.println("total users"+data.totalUsers());
 		
-		Authentication object=new Authentication();
-		String message=object.login("meena@gmail","1234");
+		String message=register.login("meena1","1234");
 		
 		System.out.println(message);
 		

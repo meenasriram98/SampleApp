@@ -29,6 +29,11 @@ public class UserRepository {
 		System.out.println("new user added successfully");
 	}
 	
+	public int totalUsers()
+	{
+		return user.size();
+	}
+	
 	
 
 }
